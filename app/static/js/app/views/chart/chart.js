@@ -10,7 +10,19 @@ angular.module('udxApp.chartView', ['ngRoute'])
   });
 }]);
 
-app.controller('chartController', function($scope) {
-    $scope.driversList = {};
+app.factory('clinicalDataService', function($http) {
+  return {
+    async: function() {
+      return $http.get('/clinical_data');
+      }
+  };
+});
+
+app.controller('chartController', function(clinicalDataService, $scope) {
+    clinicalDataService.async().then(function(response) {
+    $scope.data = response.data
+
+
+    })
 
 });

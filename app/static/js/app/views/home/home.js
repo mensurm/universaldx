@@ -23,7 +23,7 @@ app.factory('companyInfoService', function($http) {
 app.controller('homeController', function(companyInfoService, $scope) {
     companyInfoService.async().then(function(response) {
     $scope.company = response.data;
-    console.log(response.data);
+
 })
 
 });
