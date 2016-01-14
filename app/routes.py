@@ -44,7 +44,7 @@ def contact_us():
         return jsonify(**response)
 
     except Exception:
-        response = {'message': 'There was a problem processing your request. Contact our support staff.'}
+        response = {'message': 'There was a problem processing your request. Contact our support staf.'}
         return jsonify(**response)
 
 
@@ -63,6 +63,8 @@ def clinical_data():
                 sample['gender'] = row[3]
                 sample['race'] = row[4]
                 samples[sample_id] = sample
+
+        print samples
 
         with open('training.csv', 'r') as csvfile:
             next(csvfile)
