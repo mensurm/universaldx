@@ -49,30 +49,34 @@ def contact_us():
 
 @app.route('/clinical_data', methods=['GET'])
 def clinical_data():
+    try:
+        samples = {}
+        with open('clinical_data_training.csv', 'r') as csvfile:
+            next(csvfile) # skip csv header line
+            rows = csv.reader(csvfile, delimiter=',')
+            for row in rows:
+                sample = {}
+                sample_id = row[0]
+                sample['condition'] = row[1]
+                sample['age'] = row[2]
+                sample['gender'] = row[3]
+                sample['race'] = row[4]
+                samples[sample_id] = sample
 
-    samples = {}
-    with open('clinical_data_training.csv', 'r') as csvfile:
-        next(csvfile) # skip csv header line
-        rows = csv.reader(csvfile, delimiter=',')
-        for row in rows:
-            sample = {}
-            sample_id = row[0]
-            sample['condition'] = row[1]
-            sample['age'] = row[2]
-            sample['gender'] = row[3]
-            sample['race'] = row[4]
-            samples[sample_id] = sample
+        print samples
 
-    print samples
+        with open('training.csv', 'r') as csvfile:
+            next(csvfile)
+            rows = csv.reader(csvfile, delimiter=',')
+            for row in rows:
+                sample_id = row[0]
+                if sample_id in samples.keys():
+                    samples[sample_id]['markers'] = [float(x) for x in row[1:]]
 
-    with open('training.csv', 'r') as csvfile:
-        next(csvfile)
-        rows = csv.reader(csvfile, delimiter=',')
-        for row in rows:
-            sample_id = row[0]
-            if sample_id in samples.keys():
-                samples[sample_id]['markers'] = [float(x) for x in row[1:]]
+        return jsonify(**samples)
 
-    return jsonify(**samples)
+    except:
+        response = {}
+        return jsonify(**response)
 
 
