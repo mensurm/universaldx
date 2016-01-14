@@ -27,7 +27,7 @@ app.directive('scatterPlot', function () {
     },
     template: '<div id="container" style="margin: 0 auto">not working</div>',
     link: function (scope, element, attrs) {
-    
+
       var chart = new Highcharts.Chart({
         chart: {
           renderTo: 'container',
@@ -39,7 +39,7 @@ app.directive('scatterPlot', function () {
         },
 
           title: {
-            text: 'Marker values per sample',
+            text: 'Marker1 value vs Age per Gender ',
             x: -20 //center
         },
         subtitle: {
@@ -52,7 +52,7 @@ app.directive('scatterPlot', function () {
         },
         yAxis: {
             title: {
-                text: 'Value'
+                text: 'M1 value'
             },
             plotLines: [{
                 value: 0,
@@ -70,53 +70,19 @@ app.directive('scatterPlot', function () {
             borderWidth: 0
         },
         series: [{
-  name: "UDX001",
+  name: "Male",
 color: 'rgba(119, 152, 191, .5)',
-    data: [
-      0.2997464559,
-      0.1250191459,
-      0.0467836257,
-      0.2564102564,
-      0.139178618,
-      0.2062781821,
-      0.0353758686,
-      0.5472557745,
-      0.2680724764,
-      0.2324840764,
-      0.1574074074,
-      0.5543939793,
-      0.3421069362,
-      0.6079856438,
-      0.0669581853,
-      0.219160105,
-      0.3074248313,
-      0.0590536278
+    data: [ [42, 0.2997], [42, 0.499], [46, 0.421], [47, 0.136], [48, 0.439], [50, 0.363]
+
     ]
 },
 
 {
-  name: "UDX002",
+  name: "Female",
     color: 'rgba(223, 83, 83, .5)',
   data:
     [
-      0.4499574342,
-      0.1801140399,
-      0.1228070175,
-      0.1378205128,
-      0.1527596697,
-      0.3296960288,
-      0.0341124447,
-      0.3823903369,
-      0.3329500249,
-      0.2452229299,
-      0.0648148148,
-      0.0364285923,
-      0.1160873228,
-      0.0935845671,
-      0.0661382892,
-      0.1002624672,
-      0.0944978523,
-      0.0082018927
+      [38, 0.321], [42, 0.238], [44, 0.5839], [44, 0.583], [47, 0.517]
     ]
 
   }
