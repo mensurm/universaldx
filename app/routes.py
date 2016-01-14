@@ -34,7 +34,7 @@ def post_data():
         contact_form = ContactForm(firstname=firstname, lastname=lastname, email=email, question=question)
 
         #save submited data to text file
-        with open('queries.txt', mode='a') as file:
+        with open('queries.csv', mode='a') as file:
             file.write(str(contact_form))
             file.write("\n")
 

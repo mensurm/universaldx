@@ -1,31 +1,129 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+<!-- saved from url=(0051)https://getbootstrap.com/examples/navbar-fixed-top/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
     <title>Universal DX</title>
-</head>
-<body ng-app="udxApp">
-<h2>Universal DX home page</h2>
+    <link href="//fonts.googleapis.com/css?family=Raleway:100, 400,300,600,700,500,200|-1:200,300,400,600,800&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet">
 
 
-  <ul class="menu">
-      <li><a href="#/">Home</a></li>
-      <li><a href="#/chart">Chart</a></li>
-      <li><a href="#/contact">Contact us</a></li>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-  </ul>
+  <body ng-app="udxApp">
 
-  <div ng-view></div>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-<script type="text/javascript" src="static/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/js/angular.min.js"></script>
-<script type="text/javascript" src="static/js/angular-route.min.js"></script>
-<script type="text/javascript" src="static/js/app/app.js"></script>
-<script type="text/javascript" src="static/js/app/views/chart/chart.js"></script>
-<script type="text/javascript" src="static/js/app/views/home/home.js"></script>
-<script type="text/javascript" src="static/js/app/views/contactus/contactus.js"></script>
+            <img class="navbar-img" src="/static/img/logodx.png" alt="Logo" style="height: 100%;">
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li></li>
+            <li class="active"><a href="#/">HOME</a></li>
+            <li><a href="#/contact">CONTACT</a></li>
+            <li class="dropdown">
+              <a href="https://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CHART<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Action</a></li>
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Another action</a></li>
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Separated link</a></li>
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
 
-</body>
-</html>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <p>
+        <div ng-view></div>
+          </p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+
+
+    <div class="row footer">
+        <br>
+        <div class="col-sm-1"></div>
+  <div class="col-sm-3"><img src="static/img/logodx.png"/>></div>
+  <div class="col-sm-4">
+      <table>
+          <tr><td style="color:white"><b>CORPORATE HEADQUARTERS, SPAIN</b></td></tr>
+          <tr><td>Universal Diagnostics, S.L.</td></tr>
+          <tr><td>Centre of Research Technology and Innovation (CITIUS II)</td></tr>
+          <tr><td>University of Seville. Avda. Reina Mercedes s/n</td></tr>
+          <tr><td>U41012, Seville. Spain</td></tr>
+      </table>
+  </div>
+  <div class="col-sm-4">
+      <table>
+          <tr><td style="color:white"><b>Phone</b></td></tr>
+          <tr><td>+34 955 420 154</td></tr>
+          <tr><br></tr>
+          <tr></tr>
+          <tr><td style="color:white"><b>Email</b></td></tr>
+          <tr><td>contact@universaldx.com</td></tr>
+      </table>
+
+  </div>
+    <br>
+</div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="static/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/angular.min.js"></script>
+    <script type="text/javascript" src="static/js/angular-route.min.js"></script>
+    <script type="text/javascript" src="static/js/app/app.js"></script>
+    <script type="text/javascript" src="static/js/app/views/chart/chart.js"></script>
+    <script type="text/javascript" src="static/js/app/views/home/home.js"></script>
+    <script type="text/javascript" src="static/js/app/views/contactus/contactus.js"></script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="static/js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body></html>
