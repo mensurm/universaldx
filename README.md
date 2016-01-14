@@ -10,8 +10,8 @@ the command promt.
 
 Additionally, it is neceessary to install multiple packages for Python <br>
 
-<code>pip install Flask </code> <br>
-<code>pip install Triangle </code>
+<code>pip install Flask </code>  Flask microframework<br>   
+<code>pip install flask-triangle </code> Package needed for AngularJS and Flask templating engine (Jinja) integration
 
 To run the app run the run_app script which will start a web server on port 80
 <br> <code>python run_app.py </code>
