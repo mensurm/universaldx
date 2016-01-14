@@ -5,7 +5,8 @@ var app = angular.module('udxApp', [
   'ngRoute',
   'udxApp.chartView',
   'udxApp.homeView',
-  'udxApp.contactUsView'
+  'udxApp.contactUsView',
+    'udxApp.scatterView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});

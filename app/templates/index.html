@@ -51,10 +51,10 @@
             <li class="dropdown">
               <a href="https://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">VISUALISATIONS<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li ng-class="{ active: isActive('#/chart')}"><a href="#/chart">Scatter plot</a></li>
+                <li ng-class="{ active: isActive('#/chart')}"><a href="#/chart">Line chart</a></li>
                   <li role="separator" class="divider"></li>
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Pie chart</a></li>
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>
+                <li ng-class="{ active: isActive('#/chart')}"><a href="#/scatter">Scatter</a></li>
+
 
               </ul>
             </li>
@@ -115,6 +115,7 @@
     <script type="text/javascript" src="static/js/app/views/chart/chart.js"></script>
     <script type="text/javascript" src="static/js/app/views/home/home.js"></script>
     <script type="text/javascript" src="static/js/app/views/contactus/contactus.js"></script>
+    <script type="text/javascript" src="static/js/app/views/scatter/scatter.js"></script>
 
 
     <!-- Bootstrap core JavaScript

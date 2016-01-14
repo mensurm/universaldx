@@ -1,52 +1,20 @@
-'use strict';
 
-angular.module('udxApp.chartView', ['ngRoute'])
+
+angular.module('udxApp.scatterView', ['ngRoute'])
 
 //configure routing for view
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/chart', {
-    templateUrl: '/static/js/app/views/chart/chart.html',
-    controller: 'chartController'
+  $routeProvider.when('/scatter', {
+    templateUrl: '/static/js/app/views/scatter/scatter.html',
+    controller: 'scatterController'
   });
 }]);
 
-
-//fetch clinical data from service
-app.factory('clinicalDataService', function($http) {
-  return {
-    async: function() {
-      return $http.get('/clinical_data');
-      }
-  };
-});
-
-
-app.controller ('chartController', function(clinicalDataService, $scope, limitToFilter) {
-
-    clinicalDataService.async().then(function(response) {
-        var object = response.data;
-
-        var dataset = [];
-        for (var property in object) {
-             if (object.hasOwnProperty(property)) {
-                var item = {};
-                 item['name'] = "" + property;
-                 item['data'] = (object[property].markers);
-
-                 dataset.push(item);
-
-    }
-}
-
-        $scope.markers = dataset;
-
-
-    });
+app.controller ('scatterController', function($scope, limitToFilter) {
 
 });
 
-
- app.directive('lineChart', function () {
+app.directive('scatterPlot', function () {
   return {
     restrict: 'C',
     replace: true,
@@ -59,13 +27,15 @@ app.controller ('chartController', function(clinicalDataService, $scope, limitTo
     },
     template: '<div id="container" style="margin: 0 auto">not working</div>',
     link: function (scope, element, attrs) {
-    console.log(scope);
+    
       var chart = new Highcharts.Chart({
         chart: {
           renderTo: 'container',
           plotBackgroundColor: null,
           plotBorderWidth: null,
-          plotShadow: false
+          plotShadow: false,
+            type: 'scatter',
+            zoomType: 'xy'
         },
 
           title: {
@@ -101,7 +71,7 @@ app.controller ('chartController', function(clinicalDataService, $scope, limitTo
         },
         series: [{
   name: "UDX001",
-
+color: 'rgba(119, 152, 191, .5)',
     data: [
       0.2997464559,
       0.1250191459,
@@ -126,6 +96,7 @@ app.controller ('chartController', function(clinicalDataService, $scope, limitTo
 
 {
   name: "UDX002",
+    color: 'rgba(223, 83, 83, .5)',
   data:
     [
       0.4499574342,
