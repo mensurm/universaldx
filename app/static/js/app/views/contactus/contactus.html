@@ -1,16 +1,22 @@
+<div class="home-div">
 <h3>Contact us</h3>
 <br>
-<form method="POST" action="/contact_us">
-  <div class="form-group row">
+<div class="alert alert-info alert-dismissible" ng-show="showAlert" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{ message }}
+</div>
+<form name="contactForm" ng-submit="submitData()">
+
+    <div class="form-group row">
     <label for="firstname" class="col-sm-2 form-control-label">Firstname</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstname" name="firstname" required="true" placeholder="Enter your firstname">
+      <input ng-model = "firstname" type="text" class="form-control" id="firstname" name="firstname" required="true" placeholder="Enter your firstname">
     </div>
   </div>
   <div class="form-group row">
     <label for="lastname" class="col-sm-2 form-control-label">Lastname</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastname" name="lastname" required="true" placeholder="Enter your lastname">
+      <input ng-model = "lastname" type="text" class="form-control" id="lastname" name="lastname" required="true"  placeholder="Enter your lastname">
     </div>
   </div>
 
@@ -19,7 +25,7 @@
     <div class="form-group row">
     <label for="email" class="col-sm-2 form-control-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" name="email" required="true" placeholder="Enter your email">
+      <input ng-model = "email" type="email" class="form-control" id="email" name="email" required="true" placeholder="Enter your email">
     </div>
   </div>
 
@@ -27,7 +33,7 @@
 
         <label for="question" class="col-sm-2 form-control-label">Question</label>
     <div class="col-sm-10">
-      <textarea type="text" class="form-control" id="question" name="question" required="true" placeholder="Enter your question" />
+      <textarea ng-model = "question" type="text" class="form-control" id="question" name="question" required="true" placeholder="Enter your question" />
     </div>
   </div>
 
@@ -38,3 +44,4 @@
     </div>
   </div>
 </form>
+    </div>

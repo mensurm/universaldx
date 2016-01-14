@@ -43,21 +43,19 @@
 
             <img class="navbar-img" src="/static/img/logodx.png" alt="Logo" style="height: 100%;">
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse" ng-controller="headerController">
           <ul class="nav navbar-nav navbar-right">
               <li></li>
-            <li class="active"><a href="#/">HOME</a></li>
-            <li><a href="#/contact">CONTACT</a></li>
+            <li ng-class="{ active: isActive('#/')}"><a href="#/" class="nav-text">HOME</a></li>
+            <li ng-class="{ active: isActive('#/contact')}"><a href="#/contact" class="nav-text">CONTACT</a></li>
             <li class="dropdown">
-              <a href="https://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CHART<span class="caret"></span></a>
+              <a href="https://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">VISUALISATIONS<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Action</a></li>
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Another action</a></li>
+                <li ng-class="{ active: isActive('#/chart')}"><a href="#/chart">Scatter plot</a></li>
+                  <li role="separator" class="divider"></li>
+                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Pie chart</a></li>
                 <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">Separated link</a></li>
-                <li><a href="https://getbootstrap.com/examples/navbar-fixed-top/#">One more separated link</a></li>
+
               </ul>
             </li>
           </ul>
@@ -73,6 +71,7 @@
         <p>
         <div ng-view></div>
           </p>
+
       </div>
 
     </div> <!-- /container -->

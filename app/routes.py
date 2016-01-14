@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, jsonify, request
 from app.model import ContactForm
 import csv
+from ast import literal_eval
 
 # APP ROUTE DEFINITIONS
 
@@ -26,12 +27,12 @@ def contact_us():
 
     try:
         #get posted form data
-        form = request.form
-
-        firstname = form.get('firstname', '') # set emtpy string if field not present in form
+        form = literal_eval(request.data) # convert string to dictionary
+        firstname = form.get('firstname', '')
         lastname = form.get('lastname', '')
         email = form.get('email', '')
         question = form.get('question', '')
+
         contact_form = ContactForm(firstname=firstname, lastname=lastname, email=email, question=question)
 
         #save submited data to text file
@@ -39,11 +40,11 @@ def contact_us():
             file.write(str(contact_form))
             file.write("\n")
 
-        response = {'status': 'OK'}
+        response = {'message': 'Thank you for contacting us.'}
         return jsonify(**response)
 
     except Exception:
-        response = {'status': 'ERROR'}
+        response = {'message': 'There was a problem processing your request. Contact our support staff.'}
         return jsonify(**response)
 
 
@@ -62,8 +63,6 @@ def clinical_data():
                 sample['gender'] = row[3]
                 sample['race'] = row[4]
                 samples[sample_id] = sample
-
-        print samples
 
         with open('training.csv', 'r') as csvfile:
             next(csvfile)
